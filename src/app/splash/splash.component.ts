@@ -8,7 +8,7 @@ import { IonContent } from '@ionic/angular/standalone';
   template: `
     <div class="splash-container">
       <img src="assets/OctopusMoon.jpg" alt="Logo">
-      <h1>El Lunar Magnifico</h1>
+      <h1 class="shooting-text">La Luna Magnifica</h1>
     </div>
   `,
   styles: [`
@@ -38,11 +38,68 @@ import { IonContent } from '@ionic/angular/standalone';
       z-index: 1;
     }
 
-    h1 {
+    .shooting-text {
       position: relative;
       z-index: 2;
-      color: white;
+      font-size: 3em;
+      font-weight: bold;
+      animation: shootingStar 2s ease-out forwards,
+                 colorChange 2s linear infinite,
+                 textGrow 2s ease-out forwards;
+      opacity: 0;
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ffa500,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8f00ff
+      );
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes shootingStar {
+      0% {
+        transform: translate(-100vw, 50vh) rotate(-30deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    @keyframes colorChange {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 200% 50%;
+      }
+    }
+
+    @keyframes textGrow {
+      0% {
+        font-size: 1em;
+      }
+      50% {
+        font-size: 2em;
+      }
+      100% {
+        font-size: 4em;
+      }
     }
 
     @keyframes fadeOut {
