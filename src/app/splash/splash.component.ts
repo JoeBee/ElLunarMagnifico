@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { IonContent } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-splash',
@@ -23,8 +22,7 @@ import { IonContent } from '@ionic/angular/standalone';
       justify-content: center;
       align-items: center;
       background: #ffffff;
-      animation: fadeOut 1.5s ease-in-out forwards;
-      animation-delay: 2s;
+      animation: fadeOut 11s ease-in forwards;
       overflow: hidden;
     }
 
@@ -43,10 +41,7 @@ import { IonContent } from '@ionic/angular/standalone';
       z-index: 2;
       font-size: 3em;
       font-weight: bold;
-      animation: shootingStar 2s ease-out forwards,
-                 colorChange 2s linear infinite,
-                 textGrow 2s ease-out forwards;
-      opacity: 0;
+      animation: growText 8s ease-in forwards;
       background: linear-gradient(
         90deg,
         #ff0000,
@@ -64,64 +59,36 @@ import { IonContent } from '@ionic/angular/standalone';
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
-    @keyframes shootingStar {
-      0% {
-        transform: translate(-100vw, 50vh) rotate(-30deg);
-        opacity: 0;
+    @keyframes growText {
+      from {
+        font-size: 24px;
       }
-      20% {
-        opacity: 0.3;
-      }
-      50% {
-        opacity: 0.7;
-      }
-      100% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 1;
-      }
-    }
-
-    @keyframes colorChange {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 200% 50%;
-      }
-    }
-
-    @keyframes textGrow {
-      0% {
-        font-size: 1em;
-      }
-      50% {
-        font-size: 2em;
-      }
-      100% {
-        font-size: 4em;
+      to {
+        font-size: 192px;
       }
     }
 
     @keyframes fadeOut {
-      from {
+      0% {
         opacity: 1;
       }
-      to {
+      73% {
+        opacity: 1;
+      }
+      100% {
         opacity: 0;
-        visibility: hidden;
       }
     }
   `],
   standalone: true,
-  imports: [CommonModule, IonContent]
+  imports: [CommonModule]
 })
 export class SplashComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Navigate to main app after animation
     setTimeout(() => {
-      this.router.navigate(['/tabs']);
-    }, 3500); // 3.5 seconds (2s delay + 1.5s animation)
+      this.router.navigate(['tabs']);
+    }, 11000); // 11 seconds total (8s display + 3s fade)
   }
 } 

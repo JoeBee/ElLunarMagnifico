@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonRouterOutlet } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { planet, star, moon } from 'ionicons/icons';
+import { planet, star, moon, earth, globe } from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -21,6 +21,6 @@ import { RouterModule } from '@angular/router';
 })
 export class TabsPage {
   constructor() {
-    addIcons({ planet, star, moon });
+    addIcons({planet,globe,moon,earth,star});
   }
 }
