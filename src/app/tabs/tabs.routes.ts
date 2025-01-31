@@ -7,9 +7,8 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
+        path: 'la-luna',
+        loadComponent: () => import('../la-luna/la-luna.page').then(m => m.LaLunaPage),
       },
       {
         path: 'terrestrial-location',
@@ -23,7 +22,7 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'tab1',
+        redirectTo: 'la-luna',
         pathMatch: 'full',
       },
     ],

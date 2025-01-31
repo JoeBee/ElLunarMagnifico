@@ -1,17 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Terrestrial Location
-    </ion-title>
+    <ion-title>Terrestrial Location</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Terrestrial Location</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Terrestrial Location page"></app-explore-container>
+  <div class="map-container" style="background-color: lightcoral;">
+    <google-map #map
+      [center]="center"
+      [zoom]="zoom"
+      [options]="mapOptions"
+      (mapClick)="onMapClick($event)"
+      class="google-map">
+      <map-marker [position]="center"></map-marker>
+      <map-marker *ngIf="savedLocation" [position]="savedLocation"></map-marker>
+    </google-map>
+    <div class="coordinates">
+      Current: Lat: {{center.lat.toFixed(6)}}, Lng: {{center.lng.toFixed(6)}}
+      <br>
+      Saved: Lat: {{savedLocation?.lat?.toFixed(6) || 'None'}}, Lng: {{savedLocation?.lng?.toFixed(6) || 'None'}}
+    </div>
+  </div>
 </ion-content>

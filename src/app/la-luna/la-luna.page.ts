@@ -3,9 +3,9 @@ import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/stan
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
+  selector: 'app-la-luna',
+  templateUrl: 'la-luna.page.html',
+  styleUrls: ['la-luna.page.scss'],
   standalone: true,
   imports: [
     IonHeader,
@@ -15,6 +15,6 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
     ExploreContainerComponent
   ]
 })
-export class Tab1Page {
+export class LaLunaPage {
   constructor() {}
 }
