@@ -2,14 +2,24 @@ import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { GoogleMap, GoogleMapsModule } from '@angular/google-maps';
 import { Geolocation } from '@capacitor/geolocation';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonInput } from '@ionic/angular/standalone';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-terrestrial-location',
   templateUrl: './terrestrial-location.page.html',
   styleUrls: ['./terrestrial-location.page.scss'],
   standalone: true,
-  imports: [GoogleMapsModule, CommonModule, IonContent, IonHeader, IonTitle, IonToolbar]
+  imports: [
+    GoogleMapsModule, 
+    CommonModule, 
+    IonContent, 
+    IonHeader, 
+    IonTitle, 
+    IonToolbar, 
+    IonInput, 
+    FormsModule
+  ]
 })
 export class TerrestrialLocationPage implements OnInit {
   @ViewChild(GoogleMap) map!: GoogleMap;
@@ -18,6 +28,9 @@ export class TerrestrialLocationPage implements OnInit {
   savedLocation: any = null;
   isMapInitialized = false;
   markerLibrary: any;
+  testInput = '';
+  headerInput = '';
+  outsideInput = '';
 
   mapOptions: google.maps.MapOptions = {
     mapTypeId: 'roadmap',

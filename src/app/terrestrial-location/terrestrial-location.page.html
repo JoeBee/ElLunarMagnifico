@@ -1,10 +1,38 @@
+<input 
+  [(ngModel)]="outsideInput" 
+  placeholder="Outside test..."
+  class="test-input"
+  type="text"
+  style="position: absolute; top: 60px; left: 10px; z-index: 1000; background: pink;">
+<div style="position: absolute; top: 90px; left: 10px; z-index: 1000;">Outside typed: {{outsideInput}}</div>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Terrestrial Location</ion-title>
+    <ion-title>Terrestrial Location***</ion-title>
+    <input 
+      [(ngModel)]="headerInput" 
+      placeholder="Header test..."
+      class="test-input"
+      type="text"
+      style="margin: 10px; background: lightgreen;">
+    <div>Header typed: {{headerInput}}</div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div style="padding: 10px; background: white;">
+    <ion-input 
+      [(ngModel)]="testInput" 
+      placeholder="Test interactivity..."
+      [readonly]="false"
+      [disabled]="false"
+      fill="solid"
+      class="test-input"
+      style="z-index: 1000; position: relative;">
+    </ion-input>
+    <div>You typed: {{testInput}}</div>
+  </div>
+
   <google-map #map
     [center]="center"
     [zoom]="zoom"

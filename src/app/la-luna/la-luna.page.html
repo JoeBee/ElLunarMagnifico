@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>La Luna</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- Test input outside of Ionic containers -->
+<input 
+  [(ngModel)]="testInput" 
+  placeholder="Outside test..."
+  class="test-input"
+  type="text"
+  style="margin: 10px; background: pink; position: absolute; top: 60px; left: 10px; z-index: 1000;">
+<div style="position: absolute; top: 90px; left: 10px; z-index: 1000;">Outside typed: {{testInput}}</div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content [fullscreen]="true">
+  <div style="padding: 10px; background: white;">
+    <!-- Regular HTML input -->
+    <input 
+      [(ngModel)]="testInput" 
+      placeholder="Test interactivity..."
+      class="test-input"
+      type="text">
+    <div>You typed: {{testInput}}</div>
+  </div>
+
+  <div id="container">
+    <strong>La Luna</strong>
+    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
 </ion-content>

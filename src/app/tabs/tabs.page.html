@@ -2,6 +2,14 @@
   <ion-router-outlet></ion-router-outlet>
   
   <ion-tab-bar slot="top">
+    <input 
+      [(ngModel)]="tabInput" 
+      placeholder="Tab bar test..."
+      class="test-input"
+      type="text"
+      style="margin: 10px; background: lightblue;">
+    <div style="color: white;">Tab typed: {{tabInput}}</div>
+
     <ion-tab-button tab="la-luna" routerLink="/tabs/la-luna" routerDirection="root">
       <ion-icon aria-hidden="true" name="moon"></ion-icon>
       <ion-label>La Luna</ion-label>
@@ -9,7 +17,7 @@
 
     <ion-tab-button tab="terrestrial-location" routerLink="/tabs/terrestrial-location" routerDirection="root">
       <ion-icon aria-hidden="true" name="globe"></ion-icon>
-      <ion-label>Terrestrial Location</ion-label>
+      <ion-label>Terrestrial Location*** ***</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab3" routerLink="/tabs/tab3" routerDirection="root">

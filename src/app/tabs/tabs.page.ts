@@ -3,6 +3,7 @@ import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, IonRouterOutlet } 
 import { addIcons } from 'ionicons';
 import { planet, star, moon, earth, globe } from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-tabs',
@@ -16,10 +17,13 @@ import { RouterModule } from '@angular/router';
     IonTabButton,
     IonIcon,
     IonLabel,
-    IonRouterOutlet
+    IonRouterOutlet,
+    FormsModule
   ]
 })
 export class TabsPage {
+  tabInput = '';
+
   constructor() {
     addIcons({planet,globe,moon,earth,star});
   }

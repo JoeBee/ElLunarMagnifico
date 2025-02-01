@@ -35,3 +35,22 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Force input interactivity */
+ion-input, input, textarea {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -webkit-touch-callout: auto !important;
+  touch-action: auto !important;
+}
+
+ion-content {
+  pointer-events: auto !important;
+  touch-action: auto !important;
+}
+
+.ion-page {
+  pointer-events: auto !important;
+  touch-action: auto !important;
+}
