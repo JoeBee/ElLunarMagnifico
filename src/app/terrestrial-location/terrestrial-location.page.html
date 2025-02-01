@@ -4,21 +4,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="map-container" style="background-color: lightcoral;">
-    <google-map #map
-      [center]="center"
-      [zoom]="zoom"
-      [options]="mapOptions"
-      (mapClick)="onMapClick($event)"
-      class="google-map">
-      <map-marker [position]="center"></map-marker>
-      <map-marker *ngIf="savedLocation" [position]="savedLocation"></map-marker>
-    </google-map>
-    <div class="coordinates">
-      Current: Lat: {{center.lat.toFixed(6)}}, Lng: {{center.lng.toFixed(6)}}
-      <br>
-      Saved: Lat: {{savedLocation?.lat?.toFixed(6) || 'None'}}, Lng: {{savedLocation?.lng?.toFixed(6) || 'None'}}
-    </div>
+<ion-content>
+  <google-map #map
+    [center]="center"
+    [zoom]="zoom"
+    [options]="mapOptions"
+    (mapClick)="onMapClick($event)"
+    class="map">
+    <map-advanced-marker [position]="center"></map-advanced-marker>
+    <map-advanced-marker *ngIf="savedLocation" [position]="savedLocation"></map-advanced-marker>
+  </google-map>
+  <div class="coordinates">
+    Current: Lat: {{center.lat.toFixed(6)}}, Lng: {{center.lng.toFixed(6)}}
+    <br>
+    Saved: Lat: {{savedLocation?.lat?.toFixed(6) || 'None'}}, Lng: {{savedLocation?.lng?.toFixed(6) || 'None'}}
   </div>
 </ion-content>
